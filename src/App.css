@@ -52,6 +52,7 @@
 .menu input {
   border: 1px solid #d9e5ef;
   background-color: #d9e5ef;
+  color: #000;
   padding: 6px 10px;
   border-radius: 8px;
 }
