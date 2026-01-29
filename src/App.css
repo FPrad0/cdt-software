@@ -1,0 +1,129 @@
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.menu {
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #d9e5ef;
+  background-color: #f8fafc;
+  color: #000;
+  font-weight: bold;
+  font-size: 18px;
+  box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.3);
+}
+
+.menu input {
+  border: 1px solid #d9e5ef;
+  background-color: #d9e5ef;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+.user-list {
+  margin: 0 auto;
+  width: fit-content;
+  text-align: center;
+
+}
+
+.user-list h6 {
+  color: #326b9a;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.user-card {
+  border: 1px solid #f8fafc;
+  border-radius: 8px;
+  padding: 10px 30px;
+  background-color: #f8fafc;
+  color: #000;
+}
+
+.user-card-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 30px;
+  gap: 24px;
+}
+
+.user-modal-container {
+  position: fixed;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  height: 100%;
+  top: 0;
+  left: 0;
+  margin: 0 auto;
+}
+
+.user-modal {
+  background-color: #f8fafc;
+  color: #000;
+  padding: 20px;
+  border-radius: 8px;
+  min-width: 300px;
+}
+
+.user-modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.user-container-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #f8fafc;
+  color: #000;
+  border: 1px solid #d9e5ef;
+  border-radius: 8px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
