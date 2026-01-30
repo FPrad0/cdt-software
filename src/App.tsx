@@ -6,11 +6,13 @@ import type { AxiosResponse } from 'axios'
 import { UserModal } from './components/UserModal'
 import { UserList } from './components/UserList'
 import { Header } from './components/Header'
+import { UserNotFound } from './components/UserNotFound'
 
 function App() {
   const [users, setUsers] = useState<User[]>([])
   const [filteredUsers, setFilteredUsers] = useState<User[]>([])
   const [selectedUser, setSelectedUser] = useState<User | null>(null)
+  const [isLoading, setIsLoading] = useState<boolean>(true)
 
   const [searchText, setSearchText] = useState<string>("")
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
@@ -19,8 +21,12 @@ function App() {
     api.get("/users").then(
       (response: AxiosResponse<User[]>) => {
         setUsers(response.data)
+        setIsLoading(false)
       }
-    )
+    ).catch(() => {
+      console.error("Error fetching users")
+      setIsLoading(false)
+    })
   }, [])
 
   useEffect(() => {
@@ -44,9 +50,21 @@ function App() {
   return (
     <>
       <Header onSearchTextChange={handleSearchTextChange} />
-      <UserList users={filteredUsers} onCardClick={handleUserCardClick} />
-      {isModalOpen && selectedUser &&
-        <UserModal user={selectedUser} onClose={handleUserModalClose} />
+      {
+        isLoading ? (
+          <h2 className="loading-container">
+            Loading...
+          </h2>
+        ) :
+          <>
+            {filteredUsers.length === 0 ?
+              <UserNotFound /> :
+              <UserList users={filteredUsers} onCardClick={handleUserCardClick} />
+            }
+            {isModalOpen && selectedUser &&
+              <UserModal user={selectedUser} onClose={handleUserModalClose} />
+            }
+          </>
       }
     </>
   )

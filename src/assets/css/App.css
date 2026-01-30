@@ -1,4 +1,4 @@
-.menu {
+.header-menu {
   padding: 15px 30px;
   display: flex;
   justify-content: space-between;
@@ -7,27 +7,31 @@
   color: #000;
   font-weight: bold;
   font-size: 18px;
-  box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.3);
+  padding: 15px 30px;
+  box-shadow: 7px 7px 15px -1px rgba(0, 0, 0, 0.2);
+  align-items: center;
 }
 
-.menu input {
+.header-menu input {
   border: 1px solid #d9e5ef;
   background-color: #d9e5ef;
   color: #000;
   padding: 6px 10px;
   border-radius: 8px;
+  height: 30px;
+  width: 200px;
+  font-size: 16px;
 }
 
 .user-list {
   margin: 0 auto;
   width: fit-content;
   text-align: center;
-
 }
 
 .user-list h6 {
   color: #326b9a;
-  font-size: 14px;
+  font-size: 16px;
   text-transform: uppercase;
 }
 
@@ -37,12 +41,20 @@
   padding: 10px 30px;
   background-color: #f8fafc;
   color: #000;
+  width: 280px;
+  height: 150px;
+  box-shadow: 7px 7px 15px -1px rgba(0, 0, 0, 0.2);
+}
+
+.user-card:hover {
+  transform: scale(1.05);
+  transition: transform 0.1s ease-in-out;
 }
 
 .user-card-list {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0 30px;
+  display: grid;
+  grid-template-columns: repeat(1, minmax(200px, 1fr));
+  padding: 25px 35px 25px 35px;
   gap: 24px;
 }
 
@@ -60,7 +72,7 @@
 .user-modal {
   background-color: #f8fafc;
   color: #000;
-  padding: 20px;
+  padding: 30px;
   border-radius: 8px;
   min-width: 300px;
 }
@@ -72,10 +84,28 @@
   transform: translate(-50%, -50%);
 }
 
+.user-modal-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.user-modal-image {
+  width: 80px;
+  height: 80px;
+}
+
+.user-modal-header h2 {
+  text-align: center;
+  margin: 0;
+}
+
 .user-container-info {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .user-modal-close {
@@ -88,4 +118,64 @@
   border-radius: 8px;
   padding: 5px 10px;
   cursor: pointer;
+}
+
+.user-not-found {
+  margin: 0 auto;
+  width: fit-content;
+  text-align: center;
+  margin-top: 5%;
+}
+
+.user-not-found img {
+  width: 450px;
+  height: 450px;
+}
+
+.user-not-found h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #326b9a;
+}
+
+@media (min-width: 768px) {
+  .user-card-list {
+    grid-template-columns: repeat(2, minmax(250px, 2fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .user-card-list {
+    grid-template-columns: repeat(3, minmax(250px, 3fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .user-card-list {
+    grid-template-columns: repeat(4, minmax(250px, 4fr));
+  }
+}
+
+.user-card-image {
+  width: 50px;
+  height: 50px;
+}
+
+.header-logo {
+  width: 60px;
+  height: 60px;
+}
+
+.header-menu-logo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.loading-container {
+  margin: 0 auto;
+  width: fit-content;
+  text-align: center;
+  margin-top: 5%;
+  color: #326b9a;
 }

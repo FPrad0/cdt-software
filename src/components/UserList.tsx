@@ -4,7 +4,6 @@ import { UserCard } from "./UserCard";
 export function UserList({ users, onCardClick }: { users: User[], onCardClick: (user: User) => void }) {
   return (
     <div className="user-list">
-      <h6>User List</h6>
       <div className="user-card-list">
         {users.map((user: User) => (
           <UserCard user={user} onClick={() => onCardClick(user)} />

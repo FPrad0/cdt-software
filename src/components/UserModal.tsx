@@ -1,30 +1,29 @@
 import type { User } from "../types";
+import { getUserImage } from "../utils/userImage";
 
 export function UserModal({ user, onClose }: { user: User, onClose: () => void }) {
+  const userImage = getUserImage(user);
+
   return (
     <div className="user-modal-container" onClick={onClose}>
       <div className="user-modal-content">
         <div className="user-modal" onClick={(event) => event.stopPropagation()}>
           <button className="user-modal-close" onClick={onClose}>X</button>
-          <div className="user-container-info">
-            <h3>Name:</h3>
-            <p>{user.name}</p>
+          <div className="user-modal-header">
+            <img src={userImage} className="user-modal-image" />
+            <h2>{user.name}</h2>
           </div>
           <div className="user-container-info">
-            <h3>Email:</h3>
-            <p>{user.email}</p>
+            <p><strong>Email: </strong>{user.email}</p>
           </div>
           <div className="user-container-info">
-            <h3>Phone:</h3>
-            <p>{user.phone}</p>
+            <p><strong>Phone: </strong>{user.phone}</p>
           </div>
           <div className="user-container-info">
-            <h3>Company:</h3>
-            <p>{user.company.name}</p>
+            <p><strong>Company: </strong>{user.company.name}</p>
           </div>
           <div className="user-container-info">
-            <h3>City:</h3>
-            <p>{user.address.city}</p>
+            <p><strong>City: </strong>{user.address.city}</p>
           </div>
         </div>
       </div>
